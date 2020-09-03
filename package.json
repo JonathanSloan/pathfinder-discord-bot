@@ -2,11 +2,11 @@
   "name": "pathfinder-discord-bot",
   "version": "1.0.0",
   "description": "A bot for our weekly Pathfinder game",
-  "main": "bot.js",
+  "main": "./src/bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bot.js",
-    "dev": "nodemon bot.js"
+    "start": "node ./src/bot.js",
+    "dev": "nodemon ./src/bot.js"
   },
   "repository": {
     "type": "git",
