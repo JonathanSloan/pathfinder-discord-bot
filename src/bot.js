@@ -26,9 +26,6 @@ client.on("ready", () => {
   console.log(`${client.user.tag} has logged in.`);
 });
 
-// const isValidCommand = (message, client) =>
-//   message.content.toLowerCase().startsWith(Prefix + cmdName);
-
 // listen to messages
 client.on("message", (message) => {
   // ignores bot messages
@@ -49,15 +46,6 @@ client.on("message", (message) => {
   if (cmds.get(cmdName)) cmds.get(cmdName).run(client, message, cmdArgs);
   else message.channel.send(`${cmdName} is not a valid command.`);
 
-  //   if (message.content.startsWith(PREFIX)) {
-  //     const CMD_NAME = message.content.trim().substring(PREFIX.length);
-  //     if (CMD_NAME.startsWith(`spell `)) {
-  //       message.channel.send(getSpellData(CMD_NAME));
-  //     }
-  //     if (CMD_NAME.startsWith(`roll `)) {
-  //       message.channel.send(rollDice(CMD_NAME));
-  //     }
-  //   }
 });
 
 // load commands
@@ -68,6 +56,7 @@ client.on("message", (message) => {
   // loop through files
   for (let file of files) {
     let stat = await fs.lstat(path.join(__dirname, dir, file));
+    
     // if `file` is a directory, recursively call recurDir
     if (stat.isDirectory()) registerCommands(path.join(dir, file));
     else if (file.endsWith(".js")) {
