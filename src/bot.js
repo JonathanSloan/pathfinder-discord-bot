@@ -45,7 +45,6 @@ client.on("message", (message) => {
   // if cmd exists execute it, else show error
   if (cmds.get(cmdName)) cmds.get(cmdName).run(client, message, cmdArgs);
   else message.channel.send(`${cmdName} is not a valid command.`);
-
 });
 
 // load commands
@@ -56,7 +55,7 @@ client.on("message", (message) => {
   // loop through files
   for (let file of files) {
     let stat = await fs.lstat(path.join(__dirname, dir, file));
-    
+
     // if `file` is a directory, recursively call recurDir
     if (stat.isDirectory()) registerCommands(path.join(dir, file));
     else if (file.endsWith(".js")) {
@@ -64,7 +63,7 @@ client.on("message", (message) => {
       let cmdModule = require(path.join(__dirname, dir, file));
 
       client.commands.set(cmdName, cmdModule);
-      console.log(client.commands);
+      // console.log(client.commands);
     }
   }
 })();
