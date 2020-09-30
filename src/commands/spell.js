@@ -42,8 +42,7 @@ module.exports.run = async (client, message, args) => {
   // If no spell is found, show error message
   if (typeof spellData == "string") message.channel.send(noResults);
 
-  // if spell description is too long, show slim desc
+  // if spell description is too long, show slim desc, else show regular
   if (spellData.description.length > 1024) message.channel.send(spellInfoSlim);
-  // else show regular
   else message.channel.send(spellInfo);
 };
