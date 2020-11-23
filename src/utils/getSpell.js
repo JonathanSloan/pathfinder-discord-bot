@@ -1,14 +1,11 @@
 const spellList = require("../data/spells.json");
 
 const getSpellData = (requestedSpell) => {
-  // capitalize first letter in a string
-  // const capitalizeString = (str) =>
-  //   str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
-  // capitalize each word in the requestedSpell, join it as a string with spaces between
+  //  spell name as a string with spaces between
   const spellName = requestedSpell.map((i) => i).join(" ");
 
-  // get spell with name matching requestedSpell
+  // get spell matching lower-case requestedSpell
   const spell = spellList.find(
     (s) => s.name.toLowerCase() === spellName.toLowerCase()
   );
