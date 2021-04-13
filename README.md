@@ -1,2 +1,2 @@
 # pathfinder-discord-bot
-A bot for our weekly Pathfinder game
+A discord bot with dice roller and spell references for Pathfinder 1E
